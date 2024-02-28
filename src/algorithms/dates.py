@@ -31,6 +31,11 @@ class Dates:
         self.__logger = logging.getLogger(__name__)
 
     def exc(self) -> list[str]:
+        """
+
+        :return:
+            A list of dates
+        """
 
         ends = datetime.datetime.strptime(__date_string=self.__configurations.ending, __format='%Y-%m-%d')
 
