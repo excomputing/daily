@@ -18,6 +18,10 @@ def main():
     datestr_ = src.algorithms.dates.Dates().exc()
     logger.info(datestr_)
 
+    # Reference
+    reference = src.algorithms.reference.Reference(service=service, s3_parameters=s3_parameters).exc()
+    logger.info(reference.head())
+
 
 if __name__ == '__main__':
 
@@ -35,6 +39,7 @@ if __name__ == '__main__':
     import src.s3.s3_parameters
     import src.functions.service
     import src.setup
+    import src.algorithms.reference
 
     # S3 Parameters
     s3_parameters = src.s3.s3_parameters.S3Parameters().exc()
