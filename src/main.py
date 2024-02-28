@@ -22,6 +22,11 @@ def main():
     reference = src.algorithms.reference.Reference(service=service, s3_parameters=s3_parameters).exc()
     logger.info(reference.head())
 
+    # A parallel execution matrix: [metadata of sequences] ⊗ [dates], i.e., the outer product.
+    sequences: list[sq.Sequence] = src.algorithms.vectors.Vectors(
+        reference=reference, datestr_=datestr_).exc()
+    logger.info(sequences)
+
 
 if __name__ == '__main__':
 
@@ -36,10 +41,13 @@ if __name__ == '__main__':
 
     # Classes
     import src.algorithms.dates
-    import src.s3.s3_parameters
-    import src.functions.service
-    import src.setup
     import src.algorithms.reference
+    import src.algorithms.vectors
+
+    import src.elements.sequence as sq
+    import src.functions.service
+    import src.s3.s3_parameters
+    import src.setup
 
     # S3 Parameters
     s3_parameters = src.s3.s3_parameters.S3Parameters().exc()
