@@ -7,6 +7,8 @@ import src.elements.s3_parameters as s3p
 import src.elements.service as sr
 import src.s3.unload
 
+import config
+
 
 class Reference:
     """
@@ -29,6 +31,9 @@ class Reference:
         self.__service: sr.Service = service
         self.__s3_parameters: s3p.S3Parameters = s3_parameters
 
+        # Configurations
+        self.__configurations = config.Config()
+
         # S3 Unload Instance
         self.__unload = src.s3.unload.Unload(service=self.__service)
 
@@ -47,6 +52,18 @@ class Reference:
             return pd.read_csv(filepath_or_buffer=buffer, header=0, encoding='utf-8')
         except ImportError as err:
             raise Exception(err) from err
+
+    def __excerpt(self, blob: pd.DataFrame) -> pd.DataFrame:
+        """
+
+        :param blob:
+        :return:
+        """
+
+        # Extract the records in focus.
+        excerpt = blob.copy().loc[blob['sequence_id'].isin(self.__configurations.sequence_id_filter), :]
+
+        return excerpt
 
     def exc(self) -> pd.DataFrame:
         """
