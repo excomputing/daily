@@ -14,6 +14,10 @@ def main():
     # Logging
     logger: logging.Logger = logging.getLogger(__name__)
 
+    # The temporary local storage area
+    storage: str = src.algorithms.storage.Storage(
+        s3_parameters=s3_parameters).exc()
+
     # The dates
     datestr_ = src.algorithms.dates.Dates().exc()
     logger.info(datestr_)
@@ -26,6 +30,13 @@ def main():
     sequences: list[sq.Sequence] = src.algorithms.vectors.Vectors(
         reference=reference, datestr_=datestr_).exc()
     logger.info(sequences)
+
+    # Execute
+    src.data.interface.Interface(service=service, s3_parameters=s3_parameters,
+                                 sequences=sequences).exc(storage=storage)
+
+    # Deleting __pycache__
+    src.functions.cache.Cache().exc()
 
 
 if __name__ == '__main__':
@@ -42,9 +53,12 @@ if __name__ == '__main__':
     # Classes
     import src.algorithms.dates
     import src.algorithms.reference
+    import src.algorithms.storage
     import src.algorithms.vectors
+    import src.data.interface
 
     import src.elements.sequence as sq
+    import src.functions.cache
     import src.functions.service
     import src.s3.s3_parameters
     import src.setup
