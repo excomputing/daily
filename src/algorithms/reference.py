@@ -51,7 +51,7 @@ class Reference:
         try:
             return pd.read_csv(filepath_or_buffer=buffer, header=0, encoding='utf-8')
         except ImportError as err:
-            raise Exception(err) from err
+            raise err from err
 
     def __excerpt(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
