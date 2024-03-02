@@ -37,11 +37,7 @@ class Setup:
         bucket = src.s3.bucket.Bucket(service=self.__service, location_constraint=self.__s3_parameters.location_constraint,
                                       bucket_name=self.__s3_parameters.internal)
 
-        if bucket.exists():
-            return True
-        else:
-            raise logging.log(level=logging.WARNING,
-                              msg='The bucket does not exist, please run an instance of the image <pollutants> first.')
+        return bucket.exists()
 
     def __local(self) -> bool:
         """
@@ -61,6 +57,13 @@ class Setup:
         :return:
         """
 
-        setup = self.__s3() & self.__local()
+        if not self.__s3():
+            logging.log(level=logging.INFO,
+                        msg='The bucket does not exist, please run an instance of the image <pollutants> first.')
+            exit(1)
 
-        return setup
+        if not self.__local():
+            logging.log(level=logging.INFO, msg='Local settings failure.')
+            exit(1)
+
+        return True
