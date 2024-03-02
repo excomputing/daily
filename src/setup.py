@@ -2,6 +2,7 @@
 Module setup.py
 """
 import logging
+import sys
 
 import config
 import src.elements.s3_parameters as s3p
@@ -11,6 +12,12 @@ import src.s3.bucket
 
 
 class Setup:
+    """
+
+    Notes
+    -----
+    This class checks the Amazon S3 (Simple Storage Service) and local data environments.
+    """
 
     def __init__(self, service: sr.Service, s3_parameters: s3p.S3Parameters):
         """
@@ -60,10 +67,10 @@ class Setup:
         if not self.__s3():
             logging.log(level=logging.INFO,
                         msg='The bucket does not exist, please run an instance of the image <pollutants> first.')
-            exit(1)
+            sys.exit(1)
 
         if not self.__local():
             logging.log(level=logging.INFO, msg='Local settings failure.')
-            exit(1)
+            sys.exit(1)
 
         return True
