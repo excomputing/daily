@@ -36,11 +36,11 @@ class Unload:
         try:
             blob = self.__s3_client.get_object(Bucket=bucket_name, Key=key_name)
         except self.__s3_client.exceptions.NoSuchKey:
-            raise self.__logger.info('The key does not exist, please run an instance of the image <pollutants> first.')
+            raise f'The key {key_name} does not exist'
         except self.__s3_client.exceptions.InvalidObjectState as err:
-            raise self.__logger.info(err.response)
+            raise err.response
         except botocore.exceptions.ClientError as err:
-            raise self.__logger.info(err.response)
+            raise err.response
 
         buffer = io.StringIO(blob['Body'].read().decode('utf-8'))
 
