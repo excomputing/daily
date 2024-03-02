@@ -74,6 +74,10 @@ class Reference:
             and (c) telemetric devices metadata, i.e., the registry.
         """
 
-        reference = self.__read(filename='reference.csv')
+        # The frame of reference data
+        frame = self.__read(filename='reference.csv')
+
+        # Excerpt
+        reference: pd.DataFrame = self.__excerpt(blob=frame)
 
         return reference
