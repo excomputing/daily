@@ -1,6 +1,7 @@
 """
 Module setup.py
 """
+import logging
 
 import config
 import src.elements.s3_parameters as s3p
@@ -39,7 +40,8 @@ class Setup:
         if bucket.exists():
             return True
         else:
-            return bucket.create()
+            raise logging.log(level=logging.WARNING,
+                              msg='The bucket does not exist, please run an instance of the image <pollutants> first.')
 
     def __local(self) -> bool:
         """
