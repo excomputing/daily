@@ -1,13 +1,17 @@
 """
 Module unload.py
 """
-import logging
 import io
+
 import botocore.exceptions
+
 import src.elements.service as sr
 
 
 class Unload:
+    """
+    Unloads from Amazon S3 (Simple Storage Service).
+    """
 
     def __init__(self, service: sr.Service):
         """
@@ -16,12 +20,6 @@ class Unload:
         """
 
         self.__s3_client = service.s3_client
-
-        # Logging
-        logging.basicConfig(level=logging.INFO,
-                            format='\n\n%(message)s\n%(asctime)s.%(msecs)03d',
-                            datefmt='%Y-%m-%d %H:%M:%S')
-        self.__logger = logging.getLogger(__name__)
 
     def exc(self, bucket_name: str, key_name: str):
         """
@@ -35,8 +33,8 @@ class Unload:
 
         try:
             blob = self.__s3_client.get_object(Bucket=bucket_name, Key=key_name)
-        except self.__s3_client.exceptions.NoSuchKey:
-            raise f'The key {key_name} does not exist'
+        except self.__s3_client.exceptions.NoSuchKey as err:
+            raise f'The key {key_name} does not exist.\n{err}'
         except self.__s3_client.exceptions.InvalidObjectState as err:
             raise err.response
         except botocore.exceptions.ClientError as err:
