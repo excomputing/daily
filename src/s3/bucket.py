@@ -99,5 +99,5 @@ class Bucket:
             return bool(state)
         except self.__bucket.meta.client.exceptions.NoSuchBucket:
             return False
-        except botocore.exceptions.ClientError as err:
+        except botocore.exceptions.ClientError:
             return False
