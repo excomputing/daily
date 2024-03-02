@@ -37,7 +37,7 @@ class Dates:
             A list of dates
         """
 
-        ends = datetime.datetime.strptime(__date_string=self.__configurations.ending, __format='%Y-%m-%d')
+        ends = datetime.datetime.strptime(self.__configurations.ending, '%Y-%m-%d')
 
         if self.__configurations.starting:
             starts = datetime.datetime.strptime(__date_string=self.__configurations.starting, __format='%Y-%m-%d')
