@@ -50,6 +50,17 @@ docker compose logs --follow
 Visit docker.docs.com for more about [`docker compose up`](https://docs.docker.com/reference/cli/docker/compose/up/) & 
 [`docker compose logs`](https://docs.docker.com/reference/cli/docker/compose/logs/)
 
+<br>
+
+**Testing via Amazon EC2 (Elastic Compute Cloud)**
+
+If an EC2 machine is launched with the appropriate instance profile policies for interacting with relevant Amazon services, 
+then testing is straightforward.
+
+```shell
+docker pull ghcr.io/enqueter/daily:develop
+docker run ghcr.io/enqueter/daily:develop
+```
 
 <br>
 <br>
