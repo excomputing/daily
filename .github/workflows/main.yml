@@ -1,4 +1,4 @@
-name: Pollutants
+name: Daily Pollutant Measures
 
 on: [push]
 
