@@ -1,34 +1,7 @@
 
 <br>
 
-## Notes
-
-**Interacting with Amazon Simple Storage Service**
-
-```shell
-aws s3 rm s3://{bucket.name}  --recursive
-aws s3 rb s3://{bucket.name}
-```
-
-<br>
-
-**Images & Containers**
-
-Docker <span title="command line interface">CLI</span> [Reference](https://docs.docker.com/reference/cli/docker/):
-
-* [Container Volumes](https://docs.docker.com/reference/cli/docker/volume/create/)
-
-<br>
-
-**Inbetween Windows & Windows Subsystem for Linux (WSL)**
-
-Specifically, transferring documents between Windows and a WSL Linux Kernel
-
-```shell
-cp /mnt/v/../compose.yaml /home/../..
-```
-
-<br>
+### Notes
 
 **Testing Locally**
 
@@ -41,13 +14,13 @@ docker pull ghcr.io/enqueter/daily:develop
 docker compose up --detach
 ```
 
-If any problems arise
+Logs
 
 ```shell
 docker compose logs --follow
 ```
 
-Visit docker.docs.com for more about [`docker compose up`](https://docs.docker.com/reference/cli/docker/compose/up/) & 
+Visit [docker's reference pages](https://docs.docker.com/reference/) for more about [`docker compose up`](https://docs.docker.com/reference/cli/docker/compose/up/) & 
 [`docker compose logs`](https://docs.docker.com/reference/cli/docker/compose/logs/)
 
 <br>
