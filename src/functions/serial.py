@@ -2,6 +2,7 @@
 Module serial.py
 """
 import yaml
+import requests
 
 
 class Serial:
@@ -17,6 +18,27 @@ class Serial:
         """
         Constructor
         """
+
+    @staticmethod
+    def api(url: str) -> dict:
+        """
+
+        :param url:
+        :return:
+        """
+
+        try:
+            response = requests.get(url=url, timeout=600)
+            response.raise_for_status()
+        except requests.exceptions.Timeout as err:
+            raise err from err
+        except Exception as err:
+            raise err from err
+
+        if response.status_code == 200:
+            content = response.content.decode(encoding='utf-8')
+            return yaml.safe_load(content)
+        raise f'Failure code: {response.status_code}'
 
     @staticmethod
     def read(uri: str) -> dict:
