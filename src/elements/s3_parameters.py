@@ -28,6 +28,12 @@ class S3Parameters(typing.NamedTuple):
 
     path_internal_references
       * The bucket path of the telemetric data references.
+
+    external
+      * The name of the bucket that the project's calculations will be delivered to.
+
+    path_external_quantiles
+      * A path
     """
 
     region_name: str
@@ -36,3 +42,5 @@ class S3Parameters(typing.NamedTuple):
     internal: str
     path_internal_points: str
     path_internal_references: str
+    external: str
+    path_external_quantiles: str
