@@ -1,6 +1,6 @@
 <br>
 
-<span style="color: #777777"><b>IN PROGRESS</b></span>
+<span style="color: #555555"><b>IN PROGRESS</b></span>
 
 <br>
 
