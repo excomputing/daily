@@ -1,4 +1,4 @@
-name: pollutants
+name: excomputing
 channels:
   - conda-forge
 dependencies:
