@@ -1,4 +1,4 @@
-name: 'Ex Computing: Latest Nitrogen Readings'
+name: 'Ex Computing: Daily Nitrogen Readings'
 
 on: [push]
 
