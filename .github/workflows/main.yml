@@ -1,4 +1,4 @@
-name: Daily Pollutant Measures
+name: 'Ex Computing: Latest Nitrogen Readings'
 
 on: [push]
 
