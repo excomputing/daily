@@ -1,10 +1,10 @@
 <br>
 
 master <br>
-[![Daily](https://github.com/enqueter/daily/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/enqueter/daily/actions/workflows/main.yml)
+[![Ex Computing: Daily Nitrogen Readings](https://github.com/excomputing/daily/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/excomputing/daily/actions/workflows/main.yml)
 
 develop <br>
-[![Daily](https://github.com/enqueter/daily/actions/workflows/main.yml/badge.svg?branch=develop)](https://github.com/enqueter/daily/actions/workflows/main.yml)
+[![Ex Computing: Daily Nitrogen Readings](https://github.com/excomputing/daily/actions/workflows/main.yml/badge.svg?branch=develop)](https://github.com/excomputing/daily/actions/workflows/main.yml)
 
 <br>
 
