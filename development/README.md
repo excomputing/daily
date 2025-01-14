@@ -1,7 +1,14 @@
 
 <br>
 
-### Notes
+### Environment
+
+[Remote & Local Environments](https://github.com/excomputing/data/tree/master/development#remote--local-environments)
+
+<br>
+<br>
+
+### Testing
 
 **Testing Locally**
 
