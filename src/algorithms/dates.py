@@ -40,7 +40,7 @@ class Dates:
         ends = datetime.datetime.strptime(self.__configurations.ending, '%Y-%m-%d')
 
         if self.__configurations.starting:
-            starts = datetime.datetime.strptime(__date_string=self.__configurations.starting, __format='%Y-%m-%d')
+            starts = datetime.datetime.strptime(self.__configurations.starting, '%Y-%m-%d')
             values = pd.date_range(start=starts, end=ends, freq='MS').to_list()
             datestr_ = [str(value.date()) for value in values]
         else:

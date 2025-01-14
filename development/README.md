@@ -1,7 +1,14 @@
 
 <br>
 
-### Notes
+### Environment
+
+[Remote & Local Environments](https://github.com/excomputing/data/tree/master/development#remote--local-environments)
+
+<br>
+<br>
+
+### Testing
 
 **Testing Locally**
 
@@ -10,7 +17,7 @@ local testing option is a compose.yaml; a `compose.yaml` of the form [compose.ya
 upcoming**. Subsequently, within the directory hosting `compose.yaml`
 
 ```shell
-docker pull ghcr.io/enqueter/daily:develop
+docker pull ghcr.io/excomputing/daily:master
 docker compose up --detach
 ```
 
@@ -31,8 +38,8 @@ If an EC2 machine is launched with the appropriate instance profile policies for
 then testing is straightforward.
 
 ```shell
-docker pull ghcr.io/enqueter/daily:develop
-docker run ghcr.io/enqueter/daily:develop
+docker pull ghcr.io/excomputing/daily:master
+docker run ghcr.io/excomputing/daily:master
 ```
 
 <br>

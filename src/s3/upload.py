@@ -2,8 +2,8 @@
 Module upload.py
 """
 
-import logging
 import io
+import logging
 
 import boto3
 import botocore.exceptions
