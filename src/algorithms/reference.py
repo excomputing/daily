@@ -44,7 +44,7 @@ class Reference:
         uri = f's3://{self.__s3_parameters.internal}/{self.__s3_parameters.path_internal_references}{filename}'
         text = txa.TextAttributes(uri=uri, header=0)
 
-        return self.__streams.api(text=text)
+        return self.__streams.read(text=text)
 
     def __excerpt(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
